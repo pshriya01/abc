@@ -8,20 +8,20 @@ require("dotenv").config();
 
 const userRouter = express.Router();
 
-
-
 userRouter.get("/news", async (req, res) => {
   try {
     const news = await NewsModel.find();
+    console.log(news)
     res.status(200).json({ "news": news });
   } catch (error) {
     res.status(400).send({ error: error.message });
   }
 });
 
-userRouter.get("/help", async (req, res) => {
+userRouter.get("/help", async(req, res) => {
   try {
     const help = await HelpModel.find();
+    console.log(help)
     res.status(200).json({ "help": help });
   } catch (error) {
     res.status(400).send({ error: error.message });
